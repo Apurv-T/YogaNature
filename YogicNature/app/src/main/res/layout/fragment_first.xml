@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <VideoView
+            android:id="@+id/homeVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="0dp"
+
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="-3dp"
+            android:background="#BAFFFFFF"
+            android:backgroundTint="#4DD6809C"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.0" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textview_first"
+        android:layout_width="213dp"
+        android:layout_height="277dp"
+        android:background="#70927397"
+        android:backgroundTint="#9E927397"
+        android:fontFamily="@font/radiant"
+        android:lineSpacingExtra="8sp"
+        android:text="@string/hello_first_fragment"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#C1B9B9"
+        android:textSize="40sp"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@id/button_meditate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_relax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/relax"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_yoga"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <Button
+        android:id="@+id/button_meditate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_first" />
+
+    <Button
+        android:id="@+id/button_yoga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/yoga"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_meditate"
+        app:layout_constraintVertical_bias="0.19" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
