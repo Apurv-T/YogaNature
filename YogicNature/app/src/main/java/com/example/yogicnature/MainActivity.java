@@ -1,5 +1,6 @@
 package com.example.yogicnature;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -12,11 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.Toast;
 import android.widget.VideoView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         super.onCreate(savedInstanceState);
-        VideoView homeVid= findViewById(R.id.homeVideo);
+        VideoView homeVid = findViewById(R.id.homeVideo);
         homeVid.resolveAdjustedSize(Resources.getSystem().getDisplayMetrics().heightPixels, Resources.getSystem().getDisplayMetrics().widthPixels);
 
-        Uri home_uri= Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.beach);
+        Uri home_uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.beach);
         homeVid.setVideoURI(home_uri);
         homeVid.start();
         homeVid.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -42,10 +49,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        this.findViewById(R.id.button_meditate).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.activity_meditation_activity);
+            }
+        });
 
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -71,10 +83,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onRestart() {
-        VideoView homeVid= findViewById(R.id.homeVideo);
+        VideoView homeVid = findViewById(R.id.homeVideo);
         homeVid.resolveAdjustedSize(Resources.getSystem().getDisplayMetrics().heightPixels, Resources.getSystem().getDisplayMetrics().widthPixels);
 
-        Uri home_uri= Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.beach);
+        Uri home_uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.beach);
         homeVid.setVideoURI(home_uri);
         homeVid.start();
         homeVid.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -85,7 +97,18 @@ public class MainActivity extends AppCompatActivity {
                 homeVid.start();
             }
         });
+        this.findViewById(R.id.button_meditate).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getApplicationContext(),Meditation_activity.class);
+                startActivity(intent);
 
+
+            }
+        });
         super.onRestart();
     }
+
+
 }
+

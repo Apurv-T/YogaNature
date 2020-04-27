@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+        <VideoView
+            android:id="@+id/mediVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+
+            android:background="#BAFFFFFF"
+            android:backgroundTint="#4DD6809C"
+        />
+
+
+    <TextView
+        android:id="@+id/textview_second"
+        android:layout_width="348dp"
+        android:layout_height="74dp"
+        android:background="#70927397"
+        android:backgroundTint="#9E927397"
+        android:fontFamily="@font/radiant"
+        android:lineSpacingExtra="8sp"
+        android:text="@string/medi_label"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#C1B9B9"
+        android:textSize="38sp"
+        android:typeface="normal"
+         />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_medi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="38sp"
+        android:layout_below="@+id/textview_second"
+        android:background="#BCC683" />
+</RelativeLayout>
