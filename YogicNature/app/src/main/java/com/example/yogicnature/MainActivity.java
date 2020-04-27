@@ -8,8 +8,10 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.View;
 import android.view.Menu;
@@ -31,11 +33,11 @@ public class MainActivity extends AppCompatActivity {
         Uri home_uri= Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.beach);
         homeVid.setVideoURI(home_uri);
         homeVid.start();
-        homeVid.setOnCompletionListener ( new MediaPlayer.OnCompletionListener() {
+        homeVid.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {
-                VideoView homeVid= findViewById(R.id.homeVideo);
+                VideoView homeVid = findViewById(R.id.homeVideo);
                 homeVid.start();
             }
         });
@@ -43,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
 
 
     @Override
@@ -66,5 +67,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onRestart() {
+        VideoView homeVid= findViewById(R.id.homeVideo);
+        homeVid.resolveAdjustedSize(Resources.getSystem().getDisplayMetrics().heightPixels, Resources.getSystem().getDisplayMetrics().widthPixels);
+
+        Uri home_uri= Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.beach);
+        homeVid.setVideoURI(home_uri);
+        homeVid.start();
+        homeVid.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                VideoView homeVid = findViewById(R.id.homeVideo);
+                homeVid.start();
+            }
+        });
+
+        super.onRestart();
     }
 }
